@@ -17,23 +17,23 @@ public class Trainer extends User {
       super();
    }
 
-   /**
+   /*
     * Constructor
     */
    public Trainer(String _name, long _id){
       super(_name, _id);
    }
 
-    /**
+    /*
      * @param _day mon, tues, wed, thurs, fri, sat, sun
      * @param time 0000 = midnight - 2359 = 11:59pm
      * @param _trainer name of the trainer
      * @param _member name of the member
      * @return instance of a private session
      */
-   public Session addPrivateSession(String _day, int time, Trainer _trainer, Member _member) {
-       // TODO implement here
-      return null;
+   public boolean addSession(String _trainer, String _member, String _day, int _time) {
+       // TODO add a session that members can book to the database. call function from SessionDB.java
+      return true;
    }
 
    /*
@@ -43,9 +43,10 @@ public class Trainer extends User {
     * @param _member
     * @return
    */
-//   public PrivateSession editPrivateSession(PrivateSession _session, String _day, int time, Trainer _instructor, Member _member) {
-//      return false;
-//   }
+   public Session editSession(Session _session, String _trainer, String _member, String _day, int _time) {
+      //TODO trainers can edit a session to change the trainer, member, day or time.
+      return null;
+   }
 
 
 }

@@ -23,11 +23,6 @@ public abstract class User {
      */
    public String name;
 
-    /**
-     *
-     */
-//   private String password;
-
    @Id
    private final long id;
 

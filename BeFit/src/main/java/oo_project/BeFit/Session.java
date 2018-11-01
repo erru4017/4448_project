@@ -20,11 +20,11 @@ public class Session {
    /**
     * A trainer is associated with sessions
     */
-   public Trainer trainer;
+   public String trainer;
     /**
      * A member is associated with session
      */
-   public Member member;
+   public String member;
     /**
      * Each session has a unique id number, which is the trainerID+memberID
      */
@@ -41,10 +41,10 @@ public class Session {
    /**
     * Constructor
     */
-   public Session(Trainer _trainer, Member _member, int _sessionID, String _day, int _time) {
+   public Session(String _trainer, String _member, String _day, int _time) {
        trainer = _trainer;
        member = _member;
-       sessionID = _sessionID; //trainerID+memberID
+       sessionID = 1+2; //trainerID+memberID
        day = _day;
        time = _time;
 
@@ -61,14 +61,14 @@ public class Session {
      * @param _trainer
      * @return
      */
-   public void setTrainer(Trainer _trainer) {
+   public void setTrainer(String _trainer) {
       trainer = _trainer;
    }
 
     /**
      * @return
      */
-   public Trainer getTrainer() {
+   public String getTrainer() {
       return trainer;
    }
 
@@ -76,7 +76,7 @@ public class Session {
      * @param _member
      * @return
      */
-   public void setMember(Member _member) {
+   public void setMember(String _member) {
       member = _member;
 
    }
@@ -84,7 +84,7 @@ public class Session {
     /**
      * @return
      */
-   public Member getMember() {
+   public String getMember() {
       return member;
    }
 

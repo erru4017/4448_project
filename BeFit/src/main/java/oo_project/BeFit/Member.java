@@ -67,9 +67,9 @@ public class Member extends User {
      * @param _member
      * @return
      */
-   public boolean buyPrivateSession(String _day, int time, Trainer _trainer, Member _member) {
-        // TODO member can schedule a private session with a trainer on a day and time
-      return false;
+   public boolean bookSession(int _sessionID) {
+        // TODO member can book a session, given an id. It will then be removed from the database.
+      return true;
    }
 
 }

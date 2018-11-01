@@ -48,11 +48,18 @@ class terminalCmd{
 					System.out.println("Hello trainer, enter your name.");
 					String trainerName = input.nextLine();
 					//access db
+					//add session
+					//view sessions
+					//edit session
 
 				} if (userIn.equals("m")) {//returning member
 					System.out.println("Hello member, enter your name.");
 					String memberName = input.nextLine();
 					//access db
+					//view punches
+					//view schedule
+					//buy punches
+					//book session
 
 				}
 			}
