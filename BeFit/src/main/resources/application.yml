@@ -1,0 +1,6 @@
+spring:
+  data:
+    mongodb:
+      database: BeFit
+      host: localhost
+      port: 27017
