@@ -31,7 +31,7 @@ public class Trainer extends User {
      * @param _member name of the member
      * @return instance of a private session
      */
-   public PrivateSession addPrivateSession(String _day, int time, Trainer _trainer, Member _member) {
+   public Session addPrivateSession(String _day, int time, Trainer _trainer, Member _member) {
        // TODO implement here
       return null;
    }

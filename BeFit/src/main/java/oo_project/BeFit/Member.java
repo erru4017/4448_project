@@ -32,7 +32,7 @@ public class Member extends User {
 
    }
 
-    /**
+    /*
      * @param _punchPass how many punches they currently have
      * @param _howMany how many punches to buy
      *
@@ -41,14 +41,26 @@ public class Member extends User {
       // TODO a member will pick how many punches to buy, then that will be added to their punch pass total.
    }
 
-    /**
+    /*
      * @return number of punches the member has
      */
    public int getPunchPass() {
       return punchPass;
    }
 
-    /**
+    /*
+     * @param _day
+     * @param time
+     * @param _trainer
+     * @param _member
+     * @return
+     */
+    public void viewSchedule(){
+        // TODO view all open sessions in the database
+    }
+
+
+    /*
      * @param _day
      * @param time
      * @param _trainer

@@ -5,12 +5,12 @@ import java.util.*;
 /**
  *
  */
-public class PrivateSession {
+public class Session {
 
     /**
      * Default constructor
      */
-    public PrivateSession() {
+    public Session() {
         trainer = null;
         member = null;
         sessionID = -1; //trainerID+memberID
@@ -41,7 +41,7 @@ public class PrivateSession {
    /**
     * Constructor
     */
-   public PrivateSession(Trainer _trainer, Member _member, int _sessionID, String _day, int _time) {
+   public Session(Trainer _trainer, Member _member, int _sessionID, String _day, int _time) {
        trainer = _trainer;
        member = _member;
        sessionID = _sessionID; //trainerID+memberID
@@ -63,7 +63,6 @@ public class PrivateSession {
      */
    public void setTrainer(Trainer _trainer) {
       trainer = _trainer;
-
    }
 
     /**
