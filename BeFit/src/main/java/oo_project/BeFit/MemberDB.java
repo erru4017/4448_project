@@ -25,11 +25,12 @@ public class MemberDB {
     public Member retrieveMember(String _username){
         Optional<Member> result = repo.findById(_username);
         return result.orElse(null);
-
     }
     public void updateMember(Member m){
         repo.save(m);
-
+    }
+    public boolean exists(String _username){
+        return repo.existsById(_username);
     }
 
 

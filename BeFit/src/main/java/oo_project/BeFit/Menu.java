@@ -16,9 +16,17 @@ public class Menu {
         Scanner input = new Scanner(System.in);
         System.out.println("Hello new member, enter your name.");
         String memberName = input.nextLine();
-        System.out.println("Enter a username.");
-        String userName = input.nextLine();
-        memberDB.addMember(memberName, userName);
+        String userName;
+        while(true) {
+            System.out.println("Enter a username.");
+            userName = input.nextLine();
+            if (!memberDB.exists(userName)){
+                memberDB.addMember(memberName, userName);
+                break;
+            }else{
+                System.out.println("That username is taken.");
+            }
+        }
         return userName;
     }
     public Trainer returnTrainer(TrainerDB trainerDB, String trainerUsername){

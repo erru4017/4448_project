@@ -52,10 +52,11 @@ public abstract class Session {
     * Constructor
     */
    public Session(String _type, String _trainer, String _member, String _day, int _time) {
+       Random random = new Random();
        type = _type;
        trainer = _trainer;
        member = _member;
-       sessionID = 1+2; //trainerID+memberID
+       sessionID = random.nextInt(); //type+time because unique
        day = _day;
        time = _time;
 
