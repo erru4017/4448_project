@@ -1,22 +1,27 @@
 package oo_project.BeFit;
 
+import org.springframework.data.annotation.Id;
+
 import java.util.*;
 
 /**
  *
  */
-public class Session {
+public abstract class Session {
 
     /**
      * Default constructor
      */
     public Session() {
-        trainer = null;
-        member = null;
+        type = "";
+        trainer = "";
+        member = "";
         sessionID = -1; //trainerID+memberID
         day = "";
         time = 0;
    }
+   public String type;
+
    /**
     * A trainer is associated with sessions
     */
@@ -26,8 +31,13 @@ public class Session {
      */
    public String member;
     /**
+     * A member is associated with session
+     */
+//    private int memberCount;
+    /**
      * Each session has a unique id number, which is the trainerID+memberID
      */
+    @Id
    public int sessionID;
 
     /**
@@ -41,7 +51,8 @@ public class Session {
    /**
     * Constructor
     */
-   public Session(String _trainer, String _member, String _day, int _time) {
+   public Session(String _type, String _trainer, String _member, String _day, int _time) {
+       type = _type;
        trainer = _trainer;
        member = _member;
        sessionID = 1+2; //trainerID+memberID
@@ -49,7 +60,9 @@ public class Session {
        time = _time;
 
    }
-
+    public String getType(){
+       return type;
+    }
     /**
      * @return
      */
@@ -76,7 +89,7 @@ public class Session {
      * @param _member
      * @return
      */
-   public void setMember(String _member) {
+   public void setMembers(String _member) {
       member = _member;
 
    }
@@ -98,7 +111,7 @@ public class Session {
    }
 
     /**
-     * @return
+     * @return day of the week
      */
    public String getDay() {
       return day;

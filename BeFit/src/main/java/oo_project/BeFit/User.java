@@ -15,7 +15,7 @@ public abstract class User {
      */
    public User() {
        name = "";
-       id = -1;
+       id = "";
    }
 
     /**
@@ -24,14 +24,14 @@ public abstract class User {
    public String name;
 
    @Id
-   private final long id;
+   private String id;
 
     /**
      * @return
      */
-   public User(String _name, long _id) {
+   public User(String _name, String _username) {
         name = _name;
-        id = _id;
+        id = _username;
 
    }
 
@@ -43,6 +43,7 @@ public abstract class User {
 
    }
 
+
     /**
      * @return name of the user
      */
@@ -50,5 +51,10 @@ public abstract class User {
         return name;
    }
 
-
+    /**
+     * @return username of the user
+     */
+    public String getId() {
+        return id;
+    }
 }

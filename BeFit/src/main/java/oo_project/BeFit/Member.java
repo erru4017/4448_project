@@ -26,8 +26,8 @@ public class Member extends User {
    /**
     * Constructor
     */
-   public Member(String _name, long _id) {
-       super(_name, _id);
+   public Member(String _name, String _username) {
+       super(_name, _username);
        punchPass = 0; //start at 0 punches when they are created.
 
    }
@@ -37,8 +37,9 @@ public class Member extends User {
      * @param _howMany how many punches to buy
      *
      */
-   public void buyPunchPass(int _punchPass, int _howMany) {
+   public void buyPunchPass(int _punchPass, int howMany) {
       // TODO a member will pick how many punches to buy, then that will be added to their punch pass total.
+       this.punchPass = _punchPass + howMany;
    }
 
     /*
@@ -47,6 +48,15 @@ public class Member extends User {
    public int getPunchPass() {
       return punchPass;
    }
+    /*
+     * @param _punchPass: new value of punch pass
+     * @return
+     */
+
+    public void setPunchPass(int _punchPass) {
+
+      punchPass = _punchPass;
+    }
 
     /*
      * @param _day

@@ -20,9 +20,11 @@ public class Trainer extends User {
    /*
     * Constructor
     */
-   public Trainer(String _name, long _id){
-      super(_name, _id);
+   public Trainer(String _name, String _username){
+      super(_name, _username);
    }
+
+
 
     /*
      * @param _day mon, tues, wed, thurs, fri, sat, sun
@@ -33,7 +35,8 @@ public class Trainer extends User {
      */
    public boolean addSession(String _trainer, String _member, String _day, int _time) {
        // TODO add a session that members can book to the database. call function from SessionDB.java
-      return true;
+         addSession( _trainer,  _member,  _day, _time);
+         return true;
    }
 
    /*
