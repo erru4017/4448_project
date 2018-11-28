@@ -5,7 +5,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import java.util.*;
 
 /**
- *
+ * Trainer class holds information about all the trainers, and extends User class.
  */
 @Document(collection = "trainers")
 public class Trainer extends User {
@@ -16,40 +16,13 @@ public class Trainer extends User {
    public Trainer(){
       super();
    }
-
-   /*
+   /**
     * Constructor
     */
    public Trainer(String _name, String _username){
       super(_name, _username);
    }
 
-
-
-    /*
-     * @param _day mon, tues, wed, thurs, fri, sat, sun
-     * @param time 0000 = midnight - 2359 = 11:59pm
-     * @param _trainer name of the trainer
-     * @param _member name of the member
-     * @return instance of a private session
-     */
-   public boolean addSession(String _trainer, String _member, String _day, int _time) {
-       // TODO add a session that members can book to the database. call function from SessionDB.java
-         addSession( _trainer,  _member,  _day, _time);
-         return true;
-   }
-
-   /*
-    * @param _day
-    * @param time
-    * @param _instructor
-    * @param _member
-    * @return
-   */
-   public Session editSession(Session _session, String _trainer, String _member, String _day, int _time) {
-      //TODO trainers can edit a session to change the trainer, member, day or time.
-      return null;
-   }
 
 
 }

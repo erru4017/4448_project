@@ -17,12 +17,19 @@ public class BeFitApplication {
 		SpringApplication.run(BeFitApplication.class, args);
 	}
 }
-
+/**
+ * Terminal command main menu*/
 @ShellComponent
 class terminalCmd{
 
 	@Autowired
 	@ShellMethod("MainMenu")
+	/** Main menu
+	 * @param trainerDB The trainer database
+	 * @param memberDB The member database
+	 * @param sessionDB The session database
+	 */
+
 	public void welcome(TrainerDB trainerDB, MemberDB memberDB, SessionDB sessionDB) {
 		Menu menu = new Menu();
 		SessionFactory f = new SessionFactory();
@@ -47,8 +54,7 @@ class terminalCmd{
 						}
 						//cancel session
 						if(userIn.equals("2")){
-							//TODO cancel a session by deleting from the database
-							System.out.println("cancel");
+							menu.trainerCancelSession(trainerDB, sessionDB);
 						}
 						if (userIn.equals("3")) {
 							menu.logout();
@@ -56,8 +62,8 @@ class terminalCmd{
 						}
 					}
 				}if (userIn.equals("m")) {
-					String memberusername = menu.newMember(memberDB);
-					Member m = menu.returnMember(memberDB, memberusername);
+					String memberUsername = menu.newMember(memberDB);
+					Member m = menu.returnMember(memberDB, memberUsername);
 					System.out.println("Hello " + m.getName());
 					while (true) {
 						menu.memberMenu();
@@ -78,20 +84,7 @@ class terminalCmd{
 						}
 						//book session
 						if (userIn.equals("4")){
-							System.out.println("Which type of class: (y)oga, (c)ycling, (k)ickboxing");
-							String sessionType = input.nextLine();
-							System.out.println("Select a Trainer:");
-							//print out trainer names
-							String trainerName = input.nextLine();
-							System.out.println("Select a day: ");
-							//print out days of the week
-							String day = input.nextLine();
-							System.out.println("Select a time: ");
-							String _time = input.nextLine();
-							int time = Integer.parseInt(_time);
-							Session s = f.getSession(sessionType, trainerName, m.getName(), day, time);
-							sessionDB.addSession(s.getType(), s.getTrainer(), m.getName(), s.getDay(), s.getTime());
-
+							menu.memberBookSession(m, trainerDB, sessionDB, f);
 						}
 
 						if (userIn.equals("5")) {
@@ -118,15 +111,11 @@ class terminalCmd{
 						if(userIn.equals("1")){
 							System.out.println("Current Schedule: ");
 							sessionDB.printAllSessions();
-
 						}
 						//cancel session
 						if(userIn.equals("2")){
-							//TODO cancel a session by deleting from the database
-							System.out.println("cancel");
-
+							menu.trainerCancelSession(trainerDB, sessionDB);
 						}
-
 						if (userIn.equals("3")) {
 							menu.logout();
 							return;
@@ -159,19 +148,7 @@ class terminalCmd{
 						}
 						//book session
 						if (userIn.equals("4")){
-							System.out.println("Which type of class: (y)oga, (c)ycling, (k)ickboxing");
-							String sessionType = input.nextLine();
-							System.out.println("Select a Trainer:");
-							//print out trainer names
-							String trainerName = input.nextLine();
-							System.out.println("Select a day: ");
-							//print out days of the week
-							String day = input.nextLine();
-							System.out.println("Select a time: ");
-							String _time = input.nextLine();
-							int time = Integer.parseInt(_time);
-							Session s = f.getSession(sessionType, trainerName, m.getName(), day, time);
-							sessionDB.addSession(s.getType(), s.getTrainer(), m.getName(), s.getDay(), s.getTime());
+							menu.memberBookSession(m, trainerDB, sessionDB, f);
 						}
 						if (userIn.equals("5")) {
 							menu.logout();

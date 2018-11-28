@@ -8,6 +8,9 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 import static com.mongodb.client.model.Filters.eq;
+/**
+ * Create a repository to store all the trainers*/
+
 
 @Repository
 public interface TrainerRepository extends MongoRepository<Trainer, String> {
