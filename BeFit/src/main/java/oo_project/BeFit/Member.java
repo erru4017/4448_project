@@ -42,6 +42,7 @@ public class Member extends User {
     /** Set a punch pass to a specific value
      * @param _punchPass: new value of punch pass
      */
+
     public void setPunchPass(int _punchPass) { punchPass = _punchPass; }
 
 

@@ -48,9 +48,17 @@ public class TrainerDB {
         Optional<Trainer> result = repo.findById(_username);
         return result.orElse(null);
     }
+    /**
+     * Print a trainer in the database.
+     * @param name of the trainer
+     */
+
     private void printTrainer(String name){
         System.out.println(name);
     }
+    /**
+     * Print all trainers in the database.
+     */
     public void printAllTrainers(){
         List<Trainer> result = repo.findAll();
         for (Trainer t : result){

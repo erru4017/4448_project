@@ -134,9 +134,81 @@ public class Menu {
         System.out.println("Select a day: ");
         System.out.println("(Mon)day, (Tues)day, (Wed)nesday, (Thurs)day, (Fri)day, (Sat)urday, (Sun)day");
         String day = input.nextLine();
-
         System.out.println("Select a time: ");
         String time = input.nextLine();
         sessionDB.removeSession(trainerName+day+time);
     }
-}
+    /**Function for the menu for a trainer
+     * @param trainerDB the trainer database
+     * @param sessionDB the session database
+     * @param f the session factory
+     * @param trainerUsername the username of the trainer, to access their info from the database
+     * */
+    public void trainer(TrainerDB trainerDB, SessionDB sessionDB, SessionFactory f, String trainerUsername) {
+        Scanner input = new Scanner(System.in);
+        Trainer t = returnTrainer(trainerDB, trainerUsername);
+        System.out.println("Hello " + t.getName());
+        String userIn;
+        while (true) {
+            trainerMenu();
+            userIn = input.nextLine();
+            //view schedule
+            if (userIn.equals("1")) {
+                System.out.println("Current Schedule: ");
+                sessionDB.printAllSessions();
+            }
+            //cancel session
+            if (userIn.equals("2")) {
+                trainerCancelSession(trainerDB, sessionDB);
+            }
+            if (userIn.equals("3")) {
+                logout();
+                return;
+            }
+        }
+    }
+
+    /**Function for the menu for a trainer
+     * @param memberDB the trainer database
+     * @param sessionDB the session database
+     * @param f the session factory
+     * @param memberUsername the username of the trainer, to access their info from the database
+     * */
+    public void member(TrainerDB trainerDB, MemberDB memberDB, SessionDB sessionDB, SessionFactory f, String memberUsername) {
+        Scanner input = new Scanner(System.in);
+        String userIn;
+        Member m = returnMember(memberDB, memberUsername);
+        System.out.println("Hello " + m.getName());
+        while (true) {
+            memberMenu();
+            userIn = input.nextLine();
+            //view punches
+            if (userIn.equals("1")) {
+                System.out.println("You have " + m.getPunchPass() + " punches.");
+            }
+            //buy punches
+            if (userIn.equals("2")) {
+                int punch = memberBuyPunch(memberDB, m);
+                System.out.println("You now have " + punch + " punches.");
+            }
+            //view schedule
+            if(userIn.equals("3")){
+                System.out.println("Current Schedule: ");
+                sessionDB.printAllSessions();
+            }
+            //book session
+            if (userIn.equals("4")){
+                if (m.getPunchPass() > 0){
+                    memberBookSession(m, trainerDB, sessionDB, f);
+                }else{
+                    System.out.println("You do not have any punches left, please buy more.");
+                }
+            }
+            if (userIn.equals("5")) {
+                logout();
+                return;
+            }
+        }
+    }
+
+    }

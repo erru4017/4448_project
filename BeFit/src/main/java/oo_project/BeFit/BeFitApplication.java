@@ -42,58 +42,10 @@ class terminalCmd{
 				userIn = input.nextLine();
 				if (userIn.equals("t")) {//new trainer
 					String trainerUsername = menu.newTrainer(trainerDB);
-					Trainer t = menu.returnTrainer(trainerDB, trainerUsername);
-					System.out.println("Hello " + t.getName());
-					while (true) {
-						menu.trainerMenu();
-						userIn = input.nextLine();
-						//view schedule
-						if(userIn.equals("1")){
-							System.out.println("Current Schedule: ");
-							sessionDB.printAllSessions();
-						}
-						//cancel session
-						if(userIn.equals("2")){
-							menu.trainerCancelSession(trainerDB, sessionDB);
-						}
-						if (userIn.equals("3")) {
-							menu.logout();
-							return;
-						}
-					}
+					menu.trainer(trainerDB, sessionDB, f, trainerUsername);
 				}if (userIn.equals("m")) {
 					String memberUsername = menu.newMember(memberDB);
-					Member m = menu.returnMember(memberDB, memberUsername);
-					System.out.println("Hello " + m.getName());
-					while (true) {
-						menu.memberMenu();
-						userIn = input.nextLine();
-						//view punches
-						if (userIn.equals("1")) {
-							System.out.println("You have " + m.getPunchPass() + " punches.");
-						}
-						//buy punches
-						if (userIn.equals("2")) {
-							int punch = menu.memberBuyPunch(memberDB, m);
-							System.out.println("You now have " + punch + " punches.");
-						}
-						//view schedule
-						if (userIn.equals("3")){
-							System.out.println("Current Schedule: ");
-							sessionDB.printAllSessions();
-						}
-						//book session
-						if (userIn.equals("4")){
-							menu.memberBookSession(m, trainerDB, sessionDB, f);
-						}
-
-						if (userIn.equals("5")) {
-							menu.logout();
-							return;
-						}
-
-					}
-
+					menu.member(trainerDB, memberDB, sessionDB, f, memberUsername);
 				}
 			} if (userIn.equals("r")) {//returning user
 				System.out.println("Are you a (t)rainer or a (m)ember?");
@@ -102,59 +54,12 @@ class terminalCmd{
 					//access db
 					System.out.println("Hello trainer, enter your username.");
 					String trainerUsername = input.nextLine();
-					Trainer t = menu.returnTrainer(trainerDB, trainerUsername);
-					System.out.println("Hello " + t.getName());
-					while (true) {
-						menu.trainerMenu();
-						userIn = input.nextLine();
-						//view schedule
-						if(userIn.equals("1")){
-							System.out.println("Current Schedule: ");
-							sessionDB.printAllSessions();
-						}
-						//cancel session
-						if(userIn.equals("2")){
-							menu.trainerCancelSession(trainerDB, sessionDB);
-						}
-						if (userIn.equals("3")) {
-							menu.logout();
-							return;
-						}
-					}
-
-
+					menu.trainer(trainerDB, sessionDB, f, trainerUsername);
 				} if (userIn.equals("m")) {//returning member
 					//access db
 					System.out.println("Hello member, enter your username.");
 					String memberUsername = input.nextLine();
-					Member m = menu.returnMember(memberDB, memberUsername);
-					System.out.println("Hello " + m.getName());
-					while (true) {
-						menu.memberMenu();
-						userIn = input.nextLine();
-						//view punches
-						if (userIn.equals("1")) {
-							System.out.println("You have " + m.getPunchPass() + " punches.");
-						}
-						//buy punches
-						if (userIn.equals("2")) {
-							int punch = menu.memberBuyPunch(memberDB, m);
-							System.out.println("You now have " + punch + " punches.");
-						}
-						//view schedule
-						if(userIn.equals("3")){
-							System.out.println("Current Schedule: ");
-							sessionDB.printAllSessions();
-						}
-						//book session
-						if (userIn.equals("4")){
-							menu.memberBookSession(m, trainerDB, sessionDB, f);
-						}
-						if (userIn.equals("5")) {
-							menu.logout();
-							return;
-						}
-					}
+					menu.member(trainerDB, memberDB, sessionDB, f, memberUsername);
 				}
 			}
 			if (userIn.equals("e")) {//exit
