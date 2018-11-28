@@ -12,7 +12,6 @@ import org.springframework.shell.standard.ShellMethod;
 @SpringBootApplication
 @EnableMongoRepositories
 public class BeFitApplication {
-
 	public static void main(String[] args) {
 		SpringApplication.run(BeFitApplication.class, args);
 	}
@@ -29,7 +28,6 @@ class terminalCmd{
 	 * @param memberDB The member database
 	 * @param sessionDB The session database
 	 */
-
 	public void welcome(TrainerDB trainerDB, MemberDB memberDB, SessionDB sessionDB) {
 		Menu menu = new Menu();
 		SessionFactory f = new SessionFactory();
