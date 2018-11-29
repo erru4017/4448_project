@@ -88,7 +88,7 @@ public abstract class Session {
      * @param _member set the member for the session
      *
      */
-   public void setMembers(String _member) {
+   public void setMember(String _member) {
       member = _member;
    }
 
