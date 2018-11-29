@@ -20,14 +20,13 @@ public class BeFitApplication {
  * Terminal command main menu*/
 @ShellComponent
 class terminalCmd{
-
-	@Autowired
-	@ShellMethod("MainMenu")
 	/** Main menu
 	 * @param trainerDB The trainer database
 	 * @param memberDB The member database
 	 * @param sessionDB The session database
 	 */
+	@Autowired
+	@ShellMethod("MainMenu")
 	public void welcome(TrainerDB trainerDB, MemberDB memberDB, SessionDB sessionDB) {
 		Menu menu = new Menu();
 		SessionFactory f = new SessionFactory();

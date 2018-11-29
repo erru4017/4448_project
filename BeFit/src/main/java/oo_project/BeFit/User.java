@@ -29,7 +29,9 @@ public abstract class User {
    private String id;
 
     /**
-     * constructor
+     * Constructor
+     * @param _name name of the user
+     * @param _username username of the user
      */
    public User(String _name, String _username) {
         name = _name;

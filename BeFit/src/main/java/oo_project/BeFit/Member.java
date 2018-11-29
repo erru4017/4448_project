@@ -20,6 +20,8 @@ public class Member extends User {
    public int punchPass;
    /**
     * Constructor
+    * @param _name name of the member
+    * @param _username username of the member
     */
    public Member(String _name, String _username) {
        super(_name, _username);
@@ -42,7 +44,6 @@ public class Member extends User {
     /** Set a punch pass to a specific value
      * @param _punchPass: new value of punch pass
      */
-
     public void setPunchPass(int _punchPass) { punchPass = _punchPass; }
 
 

@@ -5,7 +5,7 @@ import org.springframework.data.annotation.Id;
 import java.util.*;
 
 /**
- *
+ * The session class holds information regarding each session of the gym.
  */
 public abstract class Session {
 
@@ -31,10 +31,6 @@ public abstract class Session {
      */
    public String member;
     /**
-     * A member is associated with session
-     */
-//    private int memberCount;
-    /**
      * Each session has a unique id number, which is the trainerID+memberID
      */
     @Id
@@ -52,7 +48,6 @@ public abstract class Session {
     * Constructor
     */
    public Session(String _type, String _trainer, String _member, String _day, String _time) {
-//       Random random = new Random();
        type = _type;
        trainer = _trainer;
        member = _member;
@@ -77,7 +72,6 @@ public abstract class Session {
 
     /**
      * @param _trainer set the name of the trainer for the session
-     *
      */
    public void setTrainer(String _trainer) {
       trainer = _trainer;
@@ -96,7 +90,6 @@ public abstract class Session {
      */
    public void setMembers(String _member) {
       member = _member;
-
    }
 
     /**
@@ -112,7 +105,6 @@ public abstract class Session {
      */
    public void setDay(String _day) {
       day = _day;
-
    }
 
     /**
@@ -124,7 +116,6 @@ public abstract class Session {
 
     /**
      * @param _time time of the session
-     *
      */
    public void setTime(String _time) {
       time = _time;

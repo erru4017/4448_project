@@ -18,6 +18,8 @@ public class Trainer extends User {
    }
    /**
     * Constructor
+    * @param _name name of the trainer
+    * @param _username username of the trainer
     */
    public Trainer(String _name, String _username){
       super(_name, _username);
